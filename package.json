@@ -1,0 +1,13 @@
+{
+  "name": "btk5h.com",
+  "repository": "https://github.com/btk5h/btk5h.com",
+  "author": "Bryan Terce <bryan.terce@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "eleventy --serve"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^0.11.0"
+  }
+}
