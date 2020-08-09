@@ -1,0 +1,13 @@
+{% macro card(title, description, href, type, staggerIndex) %}
+<a 
+  href="{{ href }}"
+  class="px-4 py-3 rounded shadow bg-white animate-fade-in stagger-100" 
+  style="--stagger: {{ staggerIndex }}"
+>
+  <div class="flex flex-wrap justify-between items-center">
+    <h3 class="flex-none mr-2 text-xl font-bold">{{ title }}</h3>
+    <span class="text-sm text-gray-500 font-bold">{{ type | upper }}</span>
+  </div>
+  <p>{{ description }}</p>
+</a>
+{% endmacro %}

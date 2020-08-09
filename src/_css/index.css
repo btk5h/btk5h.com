@@ -3,3 +3,18 @@
 @tailwind components;
 
 @tailwind utilities;
+
+@keyframes animateIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(-8px);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.stagger-100 {
+  animation-delay: calc(var(--stagger) * 100ms);
+}

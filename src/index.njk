@@ -1,0 +1,33 @@
+---
+layout: base.njk
+---
+
+{% import 'components.njk' as c %}
+
+<div class="grid grid-cols-1 md:grid-cols-2">
+  <div class="flex flex-col items-center justify-between flex-1 md:h-screen bg-brand text-white">
+    <div>
+    </div>
+    <div>
+      <h1 class="text-6xl">Bryan Terce</h1>
+    </div>
+    <div>
+    </div>
+  </div>
+  <div class="p-2 flex-1 bg-gray-100">
+    <h2 class="mb-2 text-4xl font-bold">Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {% for project in collections.project %}
+        {{ 
+          c.card(
+            title = project.data.name,
+            description = project.data.description,
+            href = project.url,
+            type = project.data.type or "project",
+            staggerIndex = loop.index0
+          )
+        }}
+      {% endfor %}
+    </div>
+  </div>
+</div>
