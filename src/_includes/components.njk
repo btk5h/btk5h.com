@@ -11,3 +11,9 @@
   <p>{{ description }}</p>
 </a>
 {% endmacro %}
+
+{% macro icon(type, name) %}
+<svg class="icon">
+  <use xlink:href="/svg/fa-{{ type }}.svg#{{ name }}"></use>
+</svg>
+{% endmacro %}
