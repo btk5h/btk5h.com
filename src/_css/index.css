@@ -22,3 +22,10 @@ body {
 .stagger-100 {
   animation-delay: calc(var(--stagger) * 100ms);
 }
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
