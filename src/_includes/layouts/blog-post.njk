@@ -1,0 +1,17 @@
+{% extends "layouts/standard.njk" %}
+
+{% import 'components.njk' as c %}
+
+{% block sidebar %}
+<div class="pt-4 leading-none">
+  <span class="block mb-2 text-xl uppercase font-bold text-gray-500">Blog Post</span>
+  <h1 class="text-5xl mb-1">{{ name }}</h1>
+  <p class="mt-4 leading-normal">{{ description }}</p>
+</div>
+{% endblock%}
+
+{% block main %}
+<div class="prose prose-sm lg:prose-lg xl:pt-8 w-full max-w-content">
+{{ content | safe }}
+</div>
+{% endblock %}

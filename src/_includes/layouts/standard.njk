@@ -1,0 +1,23 @@
+{% extends "./base.njk" %}
+
+{% import 'components.njk' as c %}
+
+
+{% block body %}
+<div class="flex flex-col xl:flex-row min-h-screen">
+  <div class="flex-none px-8 w-2/5 min-w-full xl:min-w-0 xl:min-h-full bg-brand text-white">
+    <header class="sticky top-0 mx-auto xl:mr-0 py-6 w-full max-w-lg">
+      <nav class="flex justify-between items-center mb-6">
+        <a class="text-2xl transform hover:scale-125" href="{{ '#' if page.url === '/' else '/'}}">{{ "squid" | emoji }}</a>
+        <div class="space-x-2 xl:mr-10 text-lg">
+          <a href="/about">about</a>
+        </div>
+      </nav>
+      {% block sidebar %}{% endblock %}
+    </header>
+  </div>
+  <main class="flex-none p-4 xl:px-16 w-full xl:w-auto mx-auto xl:ml-0">
+    {% block main %}{% endblock %}
+  </main>
+</div>
+{% endblock %}

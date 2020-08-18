@@ -1,33 +1,47 @@
 ---
-layout: base.njk
+title: slam
 ---
+
+{% extends "layouts/standard.njk" %}
 
 {% import 'components.njk' as c %}
 
-<div class="grid grid-cols-1 md:grid-cols-2">
-  <div class="flex flex-col items-center justify-between flex-1 md:h-screen bg-brand text-white">
-    <div>
-    </div>
-    <div>
-      <h1 class="text-6xl">Bryan Terce</h1>
-    </div>
-    <div>
-    </div>
-  </div>
-  <div class="px-4 xl:px-8 py-4">
-    <h2 class="mb-2 text-4xl font-bold">Projects</h2>
-    <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
-      {% for project in collections.project %}
-        {{ 
-          c.card(
-            title = project.data.name,
-            description = project.data.description,
-            href = project.url,
-            type = project.data.type or "project",
-            staggerIndex = loop.index0
-          )
-        }}
-      {% endfor %}
-    </div>
+{% macro socialLink(url, iconType, iconName)%}
+  <a
+    href="{{ url }}"
+    class="inline-block transform hover:scale-125"
+  >
+    {{ c.icon(iconType, iconName) }}
+  </a>
+{% endmacro %} 
+
+{% block sidebar %}
+<div>
+  <h1 class="mb-4 text-6xl leading-none">Bryan Terce</h1>
+  <p class="mb-2 text-xl leading-tight">
+    Software boi, UX/DX enthusiast
+  </p>
+  <div class="space-x-2 text-3xl">
+    {{ socialLink(links.github, "brand", "github") }}
+    {{ socialLink(links.linkedin, "brand", "linkedin") }}
   </div>
 </div>
+{% endblock %}
+
+{% block main %}
+<h2 class="mb-2 text-4xl text-gray-600 font-bold">My Stuff</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  {% for project in collections.project %}
+    {{ 
+      c.card(
+        title = project.data.name,
+        description = project.data.description,
+        emoji = project.data.emoji or "computer",
+        href = project.url,
+        type = project.data.type or "project",
+        staggerIndex = loop.index0
+      )
+    }}
+  {% endfor %}
+</div>
+{% endblock %}

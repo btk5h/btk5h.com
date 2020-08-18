@@ -8,7 +8,6 @@ module.exports = function (config) {
   return {
     dir: {
       input: "src",
-      layouts: "_layouts",
     },
   };
 };

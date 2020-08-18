@@ -1,11 +1,14 @@
-{% macro card(title, description, href, type, staggerIndex) %}
+{% macro card(title, description, emoji, href, type, staggerIndex) %}
 <a 
   href="{{ href }}"
   class="px-4 py-3 rounded shadow bg-white motion-safe:animate-fade-in stagger-100" 
   style="--stagger: {{ staggerIndex }}"
 >
   <div class="flex flex-wrap justify-between items-center">
-    <h3 class="flex-none mr-2 text-xl font-bold">{{ title }}</h3>
+    <h3 class="flex-none mr-2 text-xl font-bold">
+      <span role="img" aria-label="{{ emoji }}" class="mr-1">{{ emoji | emoji }}</span>
+      {{ title }}
+    </h3>
     <span class="text-sm text-gray-600 font-bold">{{ type | upper }}</span>
   </div>
   <p>{{ description }}</p>
