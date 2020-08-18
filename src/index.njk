@@ -6,10 +6,11 @@ title: slam
 
 {% import 'components.njk' as c %}
 
-{% macro socialLink(url, iconType, iconName)%}
+{% macro socialLink(url, label, iconType, iconName)%}
   <a
     href="{{ url }}"
     class="inline-block transform hover:scale-125"
+    aria-label="{{ label }}"
   >
     {{ c.icon(iconType, iconName) }}
   </a>
@@ -22,8 +23,8 @@ title: slam
     Software boi, UX/DX enthusiast
   </p>
   <div class="space-x-2 text-3xl">
-    {{ socialLink(links.github, "brand", "github") }}
-    {{ socialLink(links.linkedin, "brand", "linkedin") }}
+    {{ socialLink(links.github, "Bryan Terce on GitHub", "brand", "github") }}
+    {{ socialLink(links.linkedin, "Bryan Terce on LinkedIn", "brand", "linkedin") }}
   </div>
 </div>
 {% endblock %}
